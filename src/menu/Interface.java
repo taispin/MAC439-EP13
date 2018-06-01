@@ -1,7 +1,7 @@
 package menu;
 
 import java.util.Scanner;
-import Solicitacao;
+import solicita.Solicitacao;
 
 public class Interface {
 
