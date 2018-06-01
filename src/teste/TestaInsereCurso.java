@@ -8,7 +8,7 @@ public class TestaInsereCurso {
 	public static void main(String[] args) throws SQLException{
 		 // pronto para gravar
 		 Curso c = new Curso();
-		 c.setnome("Laboratorio de BD");
+		 c.setnome("Laboratorio de BD2");
 		 c.sethorario("WeFr 10-8");
 		 c.setsala("CEC");
 		 c.setidProf(77777L);

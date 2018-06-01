@@ -49,7 +49,7 @@ public class AlunoDAO {
 	// Altera
 	public void altera(Aluno aluno) {
 
-		String sql = "UPDATE Aluno SET nomeAluno=?, formacao=?, nivel=?"
+		String sql = "UPDATE Aluno SET nomeAluno=?, formacao=?, nivel=?,"
 				+ "idade=? WHERE nroAluno=?";
 		try {
 
