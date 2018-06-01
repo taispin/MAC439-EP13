@@ -50,8 +50,11 @@ public class Solicitacao {
 
 		if(pDao == null) pDao = new ProfessorDAO();
 
+		Professor p = new Professor();
+		p.setidProf(id);
+
 		try {
-			pDao.remove(id);
+			pDao.remove(p);
 		}
 		catch (RuntimeException e) {
 			return("Erro ao remover professor com id " + String.valueOf(id));
@@ -113,8 +116,11 @@ public class Solicitacao {
 
 		if(aDao == null)aDao = new AlunoDAO();
 
+		Aluno a = new Aluno();
+		a.setnroAluno(nro);
+
 		try {
-			a.remove(nro);
+			aDao.remove(a);
 		}
 		catch (RuntimeException e) {
 			return("Erro ao remover aluno com id " + String.valueOf(nro));
@@ -175,8 +181,10 @@ public class Solicitacao {
 
 	if(cDao == null) cDao = new CursoDAO();
 
+	Curso c = new Curso();
+	c.setnome(nome);
 		try {
-			cDao.remove(nome);
+			cDao.remove(c);
 		}
 		catch (RuntimeException e) {
 			return("Erro ao remover curso " + nome);

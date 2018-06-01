@@ -1,7 +1,7 @@
 package menu;
 
 import java.util.Scanner;
-import Solicitacoes;
+import Solicitacao;
 
 public class Interface {
 
@@ -27,29 +27,29 @@ public class Interface {
 		String nome = line.next();
 
 		System.out.println("ID do Departamento:");
-		Int depto = line.next();
+		int depto = line.nextInt();
 
 		System.out.println(solicita.adicionaProfessor(id, nome, depto));
 	}
-}
 
 
 	public static void main(String[] args) {
 
-		Interface interface = new Interface();
+		Interface tela;
+		tela = new Interface();
 		Scanner line = new Scanner(System.in);
 		int escolha;
 
 		while(true) {
 			System.out.println("SISTEMA ESCOLA:");
 			System.out.println(" ESCOLHA UMA DAS OPÇÕES:");
-			System.out.println("[1] -> Adicionar um novo Professor");
+			System.out.println("[1] -> Adicionar um Professor");
 			System.out.println("[2] -> Remover um Professor");
 			System.out.println("[3] -> Alterar um Professor");
 
 			escolha = line.nextInt();
 
-			if(escolha == 1) interface.adicionaProfessor();
-
+			if(escolha == 1) tela.adicionaProfessor();
 		}
+}
 }
