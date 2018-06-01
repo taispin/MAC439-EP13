@@ -1,4 +1,4 @@
-package menu;
+package solicita;
 
 // Inclui os Modelos
 import modelo.Aluno;
