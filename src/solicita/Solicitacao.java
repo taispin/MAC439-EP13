@@ -57,10 +57,10 @@ public class Solicitacao {
 			pDao.remove(p);
 		}
 		catch (RuntimeException e) {
-			return("Erro ao remover professor com id " + String.valueOf(id));
+			return("[ Erro ao remover professor com id " + String.valueOf(id) + " ]");
 		}
 
-		return("Professor com id " + String.valueOf(id) + "removido com sucesso");
+		return("[ Professor com id " + String.valueOf(id) + " removido com sucesso ]");
 	}
 
 	//Altera Professor
@@ -105,10 +105,10 @@ public class Solicitacao {
 			aDao.adiciona(a);
 		}
 		catch (RuntimeException e) {
-			return("Nao foi possivel inseriri o aluno " + nome);
+			return("[ Nao foi possivel inseriri o aluno " + nome + " ]");
 		}
 
-		return("Aluno " + nome + " adicionado com sucesso");
+		return("[ Aluno " + nome + " adicionado com sucesso ]");
 	}
 
 	//Remove Aluno
@@ -123,10 +123,10 @@ public class Solicitacao {
 			aDao.remove(a);
 		}
 		catch (RuntimeException e) {
-			return("Erro ao remover aluno com id " + String.valueOf(nro));
+			return(" [ Erro ao remover aluno com id " + String.valueOf(nro) + " ]");
 		}
 
-		return("Aluno com id " + String.valueOf(nro) + " removido com sucesso");
+		return("[ Aluno com id " + String.valueOf(nro) + " removido com sucesso ]");
 	}
 
 	// Altera Aluno
