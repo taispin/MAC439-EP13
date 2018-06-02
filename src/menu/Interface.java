@@ -103,6 +103,17 @@ public class Interface {
 		System.out.println(solicita.removeAluno(id));
 	}
 
+	//Remove Curso
+	public void removeCurso() {
+		Scanner line = new Scanner(System.in);
+
+		System.out.println("Informe os seguintes dados do Curso:");
+		System.out.println("Nome do Curso:");
+		line.useDelimiter(System.getProperty("line.separator"));
+		String nome = line.next();
+
+		System.out.println(solicita.removeCurso(nome));
+	}
 
 
 	public static void main(String[] args) {
@@ -116,12 +127,13 @@ public class Interface {
 		while(show == 1) {
 			System.out.println("SISTEMA ESCOLA:");
 			System.out.println(" ESCOLHA UMA DAS OPÇÕES:");
-			System.out.println("[1] -> Adicionar um Professor");
-			System.out.println("[2] -> Adicionar um Aluno");
-			System.out.println("[3] -> Adicionar um Curso");
-			System.out.println("[4] -> Remover um Professor");
-			System.out.println("[5] -> Remover um Aluno");
-			System.out.println("[-1] -> SAIR");
+			System.out.println("Adicionar um Professor -> [1]");
+			System.out.println("Adicionar um Aluno     -> [2]");
+			System.out.println("Adicionar um Curso     -> [3]");
+			System.out.println("Remover um Professor   -> [4]");
+			System.out.println("Remover um Aluno       -> [5]");
+			System.out.println("Remover um Curso       -> [6]");
+			System.out.println("SAIR ->  [-1]");
 
 			escolha = line.nextInt();
 
@@ -130,6 +142,7 @@ public class Interface {
 			else if (escolha == 3) tela.adicionaCurso();
 			else if (escolha == 4) tela.removeProfessor();
 			else if (escolha == 5) tela.removeAluno();
+			else if (escolha == 6) tela.removeCurso();
 			else if (escolha == -1) show = 0;
 			else System.out.println("Escolha uma opção válida ou -1 para sair!");
 			System.out.println();

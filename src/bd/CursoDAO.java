@@ -75,8 +75,8 @@ public class CursoDAO {
 			stat1.execute("set search_path to mac439_exercicio13");
 
 			PreparedStatement stmt = conexao.prepareStatement("DELETE "
-					+ "FROM Curso WHERE idProf=?");
-			stmt.setLong(1, curso.getidProf());
+					+ "FROM Curso WHERE nome=?");
+			stmt.setString(1, curso.getnome());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

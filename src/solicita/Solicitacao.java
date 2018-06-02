@@ -187,10 +187,10 @@ public class Solicitacao {
 			cDao.remove(c);
 		}
 		catch (RuntimeException e) {
-			return("Erro ao remover curso " + nome);
+			return("[ Erro ao remover curso " + nome + " ]");
 		}
 
-		return("Curso " +  nome + " removido com sucesso");
+		return("[ Curso " +  nome + " removido com sucesso ]");
 	}
 
 	//Altera Curso
