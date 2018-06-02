@@ -11,6 +11,9 @@ public class Interface {
 		solicita = new Solicitacao();
 	}
 
+	/********************************************/
+	// Adicionar
+
 	// Adiciona Professor
 	public void adicionaProfessor() {
 		Scanner line = new Scanner(System.in);
@@ -81,6 +84,9 @@ public class Interface {
 		System.out.println(solicita.adicionaCurso(nome, horario, sala, id));
 	}
 
+	/********************************************/
+	// Remover
+
 	//Remove Professor
 	public void removeProfessor() {
 		Scanner line = new Scanner(System.in);
@@ -115,6 +121,27 @@ public class Interface {
 		System.out.println(solicita.removeCurso(nome));
 	}
 
+	/********************************************/
+	// Alterar
+
+	public void alteraProfessor() {
+		Scanner line = new Scanner(System.in);
+
+		System.out.println("Informe os seguintes dados do Professor:");
+		System.out.println("ID do professor:");
+		Long id = line.nextLong();
+
+		System.out.println("Nome do Professor:");
+		line.useDelimiter(System.getProperty("line.separator"));
+		String nome = line.next();
+
+		System.out.println("ID do Departamento:");
+		int depto = line.nextInt();
+
+		System.out.println(solicita.alteraProfessor(id, nome, depto));
+	}
+
+
 
 	public static void main(String[] args) {
 
@@ -133,6 +160,7 @@ public class Interface {
 			System.out.println("Remover um Professor   -> [4]");
 			System.out.println("Remover um Aluno       -> [5]");
 			System.out.println("Remover um Curso       -> [6]");
+			System.out.println("Alterar um Professor   -> [7]");
 			System.out.println("SAIR ->  [-1]");
 
 			escolha = line.nextInt();
@@ -143,6 +171,7 @@ public class Interface {
 			else if (escolha == 4) tela.removeProfessor();
 			else if (escolha == 5) tela.removeAluno();
 			else if (escolha == 6) tela.removeCurso();
+			else if (escolha == 7) tela.alteraProfessor();
 			else if (escolha == -1) show = 0;
 			else System.out.println("Escolha uma opção válida ou -1 para sair!");
 			System.out.println();

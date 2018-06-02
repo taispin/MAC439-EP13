@@ -76,10 +76,10 @@ public class Solicitacao {
 			pDao.altera(p);
 		}
 		catch (RuntimeException e) {
-			return("Erro ao alterar professor " + nome);
+			return("[ Erro ao alterar professor " + nome + " ]");
 		}
 
-		return("Professor" + nome +"alterado com sucesso");
+		return("[ Professor " + nome +" alterado com sucesso ]");
 	}
 
 
