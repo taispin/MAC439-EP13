@@ -57,6 +57,30 @@ public class Interface {
 		System.out.println(solicita.adicionaAluno(id, nome, formacao, nivel, idade));
 	}
 
+	// Adiciona Curso
+	public void adicionaCurso() {
+		Scanner line = new Scanner(System.in);
+
+		// Recebe os dados do novo curso
+		System.out.println("Informe os seguintes dados do novo Curso:");
+		System.out.println("Nome do Curso:");
+		line.useDelimiter(System.getProperty("line.separator"));
+		String nome = line.next();
+
+		System.out.println("Horario do Curso:");
+		line.useDelimiter(System.getProperty("line.separator"));
+		String horario = line.next();
+
+		System.out.println("Sala do Curso:");
+		line.useDelimiter(System.getProperty("line.separator"));
+		String sala = line.next();
+
+		System.out.println("ID do Professor do Curso:");
+		Long id = line.nextLong();
+
+		System.out.println(solicita.adicionaCurso(nome, horario, sala, id));
+	}
+
 	public static void main(String[] args) {
 
 		Interface tela;
@@ -70,12 +94,14 @@ public class Interface {
 			System.out.println(" ESCOLHA UMA DAS OPÇÕES:");
 			System.out.println("[1] -> Adicionar um Professor");
 			System.out.println("[2] -> Adicionar um Aluno");
+			System.out.println("[3] -> Adicionar um Curso");
 			System.out.println("[-1] -> SAIR");
 
 			escolha = line.nextInt();
 
 			if(escolha == 1) tela.adicionaProfessor();
 			else if (escolha == 2) tela.adicionaAluno();
+			else if (escolha == 3) tela.adicionaCurso();
 			else if (escolha == -1) show = 0;
 			else System.out.println("Escolha uma opção válida ou -1 para sair!");
 			System.out.println();
