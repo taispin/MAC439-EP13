@@ -209,10 +209,10 @@ public class Solicitacao {
 			cDao.altera(c);
 		}
 		catch (RuntimeException e) {
-			return("Erro ao alterar curso " + nome);
+			return("[ Erro ao alterar curso " + nome + " ]");
 		}
 
-		return("Curso " + nome + " alterado com sucesso");
+		return("[ Curso " + nome + " alterado com sucesso ]");
 	}
 
 
