@@ -124,6 +124,7 @@ public class Interface {
 	/********************************************/
 	// Alterar
 
+	// Altera Professor
 	public void alteraProfessor() {
 		Scanner line = new Scanner(System.in);
 
@@ -139,6 +140,33 @@ public class Interface {
 		int depto = line.nextInt();
 
 		System.out.println(solicita.alteraProfessor(id, nome, depto));
+	}
+
+	// Altera Aluno
+	public void alteraAluno() {
+		Scanner line = new Scanner(System.in);
+
+		// Recebe os dados do aluno
+		System.out.println("Informe os seguintes dados do Aluno:");
+		System.out.println("Número do Aluno:");
+		Long id = line.nextLong();
+
+		System.out.println("Nome do Aluno:");
+		line.useDelimiter(System.getProperty("line.separator"));
+		String nome = line.next();
+
+		System.out.println("Formacao do Aluno:");
+		line.useDelimiter(System.getProperty("line.separator"));
+		String formacao = line.next();
+
+		System.out.println("Nivel do Aluno:");
+		line.useDelimiter(System.getProperty("line.separator"));
+		String nivel = line.next();
+
+		System.out.println("Idade do Aluno:");
+		int idade = line.nextInt();
+
+		System.out.println(solicita.alteraAluno(id, nome, formacao, nivel, idade));
 	}
 
 
@@ -161,6 +189,7 @@ public class Interface {
 			System.out.println("Remover um Aluno       -> [5]");
 			System.out.println("Remover um Curso       -> [6]");
 			System.out.println("Alterar um Professor   -> [7]");
+			System.out.println("Alterar um Aluno       -> [8]");
 			System.out.println("SAIR ->  [-1]");
 
 			escolha = line.nextInt();
@@ -172,6 +201,7 @@ public class Interface {
 			else if (escolha == 5) tela.removeAluno();
 			else if (escolha == 6) tela.removeCurso();
 			else if (escolha == 7) tela.alteraProfessor();
+			else if (escolha == 8) tela.alteraAluno();
 			else if (escolha == -1) show = 0;
 			else System.out.println("Escolha uma opção válida ou -1 para sair!");
 			System.out.println();

@@ -146,10 +146,10 @@ public class Solicitacao {
 			aDao.altera(a);
 		}
 		catch (RuntimeException e) {
-			return("Não foi possivel alaterar aluno com id " + String.valueOf(nro));
+			return("[ Não foi possivel alaterar aluno com id " + String.valueOf(nro) + " ]");
 		}
 
-		return("Aluno com id " + String.valueOf(nro) + " alterado com sucesso");
+		return("[ Aluno com id " + String.valueOf(nro) + " alterado com sucesso ]");
 	}
 
 	/************************************************/
