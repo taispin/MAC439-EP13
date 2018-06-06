@@ -10,9 +10,11 @@ import modelo.Matriculado;
 import bd.AlunoDAO;
 import bd.ProfessorDAO;
 import bd.CursoDAO;
+import bd.MatriculadoDAO;
 
 // Exceptions
 import java.lang.RuntimeException;
+import java.util.List;
 
 public class Solicitacao {
 
@@ -20,6 +22,7 @@ public class Solicitacao {
 	AlunoDAO aDao = null;
 	ProfessorDAO pDao = null;
 	CursoDAO cDao = null;
+	MatriculadoDAO mDao = null;
 
 	/************************************************/
 	//Solicitacoes para Professores
@@ -39,10 +42,10 @@ public class Solicitacao {
 			pDao.adiciona(p);
 		}
 		catch (RuntimeException e) {
-			return("Erro ao adiconar o professor " + nome);
+			return("[ Erro ao adiconar o professor " + nome + " ]");
 		}
 
-		return("Professor " + nome + " adicionado com sucesso");
+		return("[ Professor " + nome + " adicionado com sucesso ]");
 	}
 
 	//Remove Professor
@@ -215,5 +218,71 @@ public class Solicitacao {
 		return("[ Curso " + nome + " alterado com sucesso ]");
 	}
 
+	//Mostra Curso
+	public Curso mostraCurso(String nome) {
+
+		Curso c = new Curso();
+
+		if(cDao == null) cDao = new CursoDAO();
+
+		try {
+			c = cDao.obter(nome);
+		}
+		catch (RuntimeException e) {
+			System.out.println("[ Erro retornar curso " + nome + " ]");
+			return null;
+		}
+		return c;
+	}
+
+	//Mostra Cursos
+	public List<Curso> mostraCursos(String curso) {
+		List<Curso> cursos = null;
+
+		if(cDao == null) cDao = new CursoDAO();
+
+		try {
+			cursos = cDao.listaCursos(curso);
+		}
+			catch(RuntimeException e) {
+				return null;
+			}
+			return cursos;
+	}
+
+	//Mostra Alunos
+	public List<Aluno> mostraAlunos(String curso) {
+		List<Aluno> alunos = null;
+
+		if(mDao == null)
+			mDao = new MatriculadoDAO();
+
+			try {
+				alunos = mDao.alunosNoCurso(curso);
+			}
+			catch(RuntimeException e) {
+				return null;
+			}
+			return alunos;
+	}
+
+	// Adiciona Matricula
+	public String adicionaMatricula(Long nro, String nome) {
+
+		Matriculado m = new Matriculado();
+		m.setnroAluno(nro);
+		m.setnomeCurso(nome);
+
+		if(mDao == null) mDao = new MatriculadoDAO();
+
+		try {
+			mDao.adiciona(m);
+		}
+		catch (RuntimeException e) {
+			return("[ Erro ao adiconar a matricula ] ");
+		}
+
+		return("[ Matricula adicionada com sucesso ]");
+	}
 
 }

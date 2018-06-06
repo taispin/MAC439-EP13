@@ -112,4 +112,39 @@ public class CursoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+
+
+	// Lista de cursos com nome parcial como argumento
+	public List<Curso> listaCursos(String nome) {
+		try {
+			List<Curso> lista = new ArrayList<Curso>();
+			Curso elemento = null;
+
+			String sql = "SELECT * "
+					+ "FROM Curso "
+					+ "WHERE nome like '%" + nome +"%'";
+
+			Statement stat1 = conexao.createStatement();
+			stat1.execute("set search_path to mac439_exercicio13");
+
+			// prepared statement para busca
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+
+			ResultSet res = stmt.executeQuery();
+			while (res.next()) {
+				elemento = new Curso();
+				elemento.setnome(res.getString("nome"));
+				elemento.sethorario(res.getString("horario"));
+				elemento.setsala(res.getString("sala"));
+				elemento.setidProf(res.getLong("idProf"));
+				lista.add(elemento);
+			}
+			res.close();
+			stmt.close();
+			return lista;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 }
